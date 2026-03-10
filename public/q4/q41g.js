@@ -30,7 +30,7 @@ function addMovie(){
     if (title == "" || year == "" || genre == "" || rating == "") {
         window.alert("Your movie details are incomplete!");
     } else if (year < 1) {
-      window.alert("Years cannot be negative!")
+      window.alert("Year cannot be negative or zero!")
     } else
       {
         MovieList[title] = {};
