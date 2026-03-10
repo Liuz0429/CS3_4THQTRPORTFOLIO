@@ -22,13 +22,17 @@ else MovieList = JSON.parse(movString)
 
 function addMovie(){
 
+
     let title = document.getElementById("title").value;
     let year = document.getElementById("year").value;
     let genre = document.getElementById("genre").value;
     let rating = selectedRating;
     if (title == "" || year == "" || genre == "" || rating == "") {
         window.alert("Your movie details are incomplete!");
-    } else {
+    } else if (year < 1) {
+      window.alert("Years cannot be negative!")
+    } else
+      {
         MovieList[title] = {};
         MovieList[title]["Year"] = year;
         MovieList[title]["Genre"] = genre;
@@ -43,10 +47,12 @@ function addMovie(){
         console.log(movString);
         window.alert("Movie successfully added to the list! Click the button below to update the movies list!")
     }    
-
 };
 
         function showMovie() {
+          if (!MovieList) {
+            window.alert("No Movies added yet!");
+          } else {
             MovieList = JSON.parse(movString) // converts string into the correct data type in this case object    
             rowString = "<tr><th>Title</th><th>Year</th><th>Genre</th><th>Rating</th></tr>";
             // results.innerHTML = ""  // resets the table
@@ -56,9 +62,10 @@ function addMovie(){
                 rowString += "<td>" + key + "</td>";
                 rowString += "<td>" + MovieList[key]["Year"] + "</td>";
                 rowString += "<td>" + MovieList[key]["Genre"] + "</td>";
-                rowString += "<td>" + MovieList[key]["Rating"] + "</td></tr>";
+                rowString += "<td class='yellow'>" + MovieList[key]["Rating"] + "</td></tr>";
             }
-        movieList.innerHTML = rowString;
+        movieList.innerHTML = rowString; 
+          }
         }
 
 

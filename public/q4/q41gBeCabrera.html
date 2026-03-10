@@ -10,7 +10,11 @@
     <link rel="icon" href="../../assets/mowiewowie.png" sizes="32x32" type="image/png">
     <style>
 
-            table {
+    * {
+        font-family: serif;
+    }
+
+    table {
         border-collapse: collapse;
         width: 100%;
     }
@@ -18,7 +22,7 @@
     table, th, td {
         border: 3px solid black;
         padding: 5px;
-        background-color: rgb(82, 192, 243);
+        background-color: rgb(60, 47, 179);
         text-align: center;
         font-size: 1.5rem;
         box-shadow: 2px 2px 5px black;
@@ -28,24 +32,34 @@
         body {
             font-size: 2rem;
             background-color: rgb(140, 217, 228);
+            background-image: url("../../assets/gira.jpg");
+            backdrop-filter: blur(3px);
         }
 
         .selected {
-            color: rgb(236, 236, 49);
+            color: rgb(14, 24, 219);
         }
 
         .header {
             text-align: center;
+            width: 50%;
+            padding: 5px;
+            background-color: rgba(26, 6, 116, 0.596);
+            text-align: center;
+            border-radius: 0px 50px;
+            font-style:italic; 
         }
 
         .movieform {
             margin: auto;
             justify-items: center;
             text-align: center;
-            border: solid 4px black;
+            border: ridge 4px rgb(23, 21, 53);
             width: 60%;
             padding-bottom: 1rem;
-            background-color:rgb(106, 113, 221);
+            background-color:rgba(45, 65, 131, 0.37);
+            margin-top: 1rem;
+            color: white;
         }
 
         .movielist {
@@ -54,17 +68,35 @@
             justify-items: center;
             text-align: center;
             width: 60%;
-            border: dotted 3px black;
+            border: ridge 3px black;
+            background-color:rgba(45, 65, 131, 0.37);
+            color: white;
         }
+        
 
         .movieadd {
             width: 30%;
             font-size: 1.5rem;
+            transition-duration: 0.8s;
         }
 
         .movieadd:hover {
             width: 25%;
-            background-color:rgb(34, 121, 121);
+            background-color:rgb(34, 43, 121);
+            color: azure;
+            transition-duration: 0.5s;
+        }
+
+        .movieshow {
+            width: 30%;
+            font-size: 1.5rem;
+            transition-duration: 0.8s;
+            margin-top: 1.4rem;
+        }
+
+        .movieshow:hover {
+            width: 25%;
+            background-color:rgb(34, 43, 121);
             color: azure;
             transition-duration: 0.5s;
         }
@@ -73,6 +105,14 @@
             cursor: pointer;
         }
         
+        .stars {
+            margin: auto;
+            margin-top: 10px;
+            background-color:rgba(240, 255, 255, 0.185);
+            width: 25%;
+            border-radius: 0px 25px;
+        }
+
         #title {
             width: 30%;
             font-size: 1.5rem;
@@ -89,13 +129,25 @@
         }
 
         header {
-        background-color:#a887f7;
-        width: 50%;
-        padding: 0.5rem;
-        border: solid rgb(44, 44, 44) 3px;
-        font-size: 1.3rem;
-        margin: auto;
-    }
+            background-color:rgba(45, 65, 131, 0.37)    ;
+            width: 50%;
+            padding: 0.5rem;
+            border: solid rgb(44, 44, 44) 3px;
+            font-size: 1.3rem;
+            margin: auto;
+        }
+
+        .stuff {
+            padding-top: 1.5rem;
+            width: 80%;
+            background-color:rgba(91, 96, 139, 0.808);
+            border-radius: 25px 25px;
+            padding-bottom: 1.5rem;
+        }
+
+        .yellow {
+            color: rgb(152, 156, 233);
+        }
 
     </style>
   </head>
@@ -110,10 +162,13 @@
         <nav class="navbar">
             <a href="../../index.html"> Home </a> <br>
         </nav>
+        <p style="font-style: italic; font-size: 1rem;">*Background image taken from Gira Gira - Ado Music Video on YouTube*</p>
     </header>
     <div class="movieform">
     <h2 class="header">Add a Movie</h2>
-    
+
+    <section class="stuff">
+
     <label for="title">Title:</label>
     <input type="text" id="title">
     <br/> <br/>
@@ -129,8 +184,10 @@
       <option value="Adventure">Adventure</option>
       <option value="Sci-Fi">Sci-Fi</option>
     </select>
-    <br/> <br/>
-    
+    </section>
+    <br>
+
+    <span class="ratings">
     <label>Rating:</label>
     <div class="stars" id="ratingStars">
       <span class="star" data-value="1">&#9733;</span>
@@ -139,10 +196,12 @@
       <span class="star" data-value="4">&#9733;</span>
       <span class="star" data-value="5">&#9733;</span>
     </div>
+    </span>
     <br/>
     
+    
     <button class="movieadd" onclick="addMovie();">Add Movie</button> <br>
-    <button class="movieadd" onclick="showMovie();">Show/Update Movies</button>
+    <button class="movieshow" onclick="showMovie();">Show/Update Movies List</button>
     </div>
     
     <div class="movielist">
