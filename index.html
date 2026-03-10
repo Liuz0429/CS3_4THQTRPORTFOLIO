@@ -14,54 +14,43 @@
         box-sizing: border-box;
     }
 
-    header, footer {
-        background-color: black;
-        color: white;
-        text-align: center;
-        padding: 10px;
-    }
-
-    h1 {
-        text-transform: uppercase;
-        color: gray;
-        word-spacing: 10px;
-        letter-spacing: -2px;
-        margin-bottom: 0%;
-        text-shadow: 2px 2px 5px black;
-    }
-    
-    .thingy ul li {
-        width: 150px;
-        padding: 5px;
-        background-color: darkblue;
-        text-align: center;
-        display: inline-block;
-        border-radius: 10px 10px;
-    }
-
-    a {
-        color: lightblue;
-    }
-    
-    a:hover {
-        color:white;
-    }
-    
-    .bruh { 
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      width: 25%;
-    }
-
     body {
-      background-color: antiquewhite;
+      background: url("./assets/wp13142518.jpg") no-repeat fixed center;
+      background-size: 100%;
+      backdrop-filter: blur(4px);
+    }
+
+    .heading {
+      background-color:rgba(161, 143, 245, 0.664);
+      width: fit-content;
+      margin: auto;
+      font-size: 2rem;
+      padding: 1rem;
+      border-radius: 5px 25px;
+    }
+
+    iframe {
+      display: block;
+      padding-top: 2rem;
+      border: none;
+      margin: auto;
+    }
+
+    .listen {
+      text-align: center;
+    }
+
+    .reco {
+      background-color:rgba(94, 47, 182, 0.39);
+      width: 80%;
+      margin: auto;
+      border-radius: 5px 25px;
     }
 
   </style>
 </head>
 <body>
-  <header>
+  <header class="heading">
   <section>
    <h1>Links to Cabrera's work</h1>
    <nav class="thingy">
@@ -70,9 +59,19 @@
       <li><a href="./public/q3/Q3_2GBerylliumCabrera.html">[3RD QUARTER]Second Graded Exercise </a></li> <br><br>
       <li><a href="./public/q4/q41gBeCabrera.html">[4TH QUARTER]First Graded Exercise </a></li>
     </ul>
+  <p style="font-style: italic; font-size: 1rem;">*Image sourced from Odo - Ado Music Video on YouTube</p>
    </nav>
+  </section>
   </header>
-    <img class="bruh" src="./assets/mowiewowie.png" alt="mowiewowie">
-</section>
+  <br>
+  <div class="reco">
+    <h1 class="listen">LISTEN TO ADO NOW!!!</h1>
+    <iframe width="800" height="560" src="https://open.spotify.com/artist/6mEQK9m2krja6X1cfsAjfl?si=BcwTVQ1HTPCzoG-woJL4lA"></iframe>
+    <iframe width="800" height="560" src="https://youtu.be/TbOLDRuKsgA?si=ZXTe8n3UxLEg9CrB"></iframe>
+    <iframe width="800" height="560" src="https://youtu.be/TbOLDRuKsgA?si=ZXTe8n3UxLEg9CrB"></iframe>
+    <iframe width="800" height="560" src="https://youtu.be/hyV1AJiFNyo?si=Z8Z0RSYg1-lQY7MA"></iframe>
+    <iframe width="800" height="560" src="https://youtu.be/sOiMD45QGLs?si=A60Cli5V8THMqwXL"></iframe>
+    <iframe width="800" height="560" src="https://youtu.be/YvYii6dluM8?si=UithXohpeXu9Wcwx"></iframe>
+  </div>
 </body>
 </html>
