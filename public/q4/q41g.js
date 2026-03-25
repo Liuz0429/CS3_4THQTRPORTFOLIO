@@ -31,7 +31,19 @@ function addMovie(){
         window.alert("Your movie details are incomplete!");
     } else if (year < 1) {
       window.alert("Year cannot be negative or zero!")
-    } else
+    } else if (MovieList.hasOwnProperty(title)) {
+        let ratingvalue = MovieList[title]["Rating"].length
+        let blah = Number(rating) + ratingvalue;
+        let stars2 = Math.round(blah/2);
+        let stars3 = "";
+        for (let i = 0; i < stars2; i++) {
+            stars3 += "★";
+        }
+        MovieList[title]["Rating"] = stars3;
+        movString = JSON.stringify(MovieList)
+        localStorage.setItem("movies", movString)
+
+    } else if (!MovieList.hasOwnProperty(title))
       {
         MovieList[title] = {};
         MovieList[title]["Year"] = year;
@@ -49,12 +61,26 @@ function addMovie(){
     }    
 };
 
+function deleteMovie(title) {
+    let test = confirm("Are you sure you want to delete this movie from the list?");
+      if (test) {
+          delete MovieList[title];
+          localStorage.setItem("movies", JSON.stringify(MovieList));
+          showMovie(); 
+      }
+  }
+
         function showMovie() {
           if (!MovieList) {
             window.alert("No Movies added yet!");
           } else {
-            MovieList = JSON.parse(movString) // converts string into the correct data type in this case object    
-            rowString = "<tr><th>Title</th><th>Year</th><th>Genre</th><th>Rating</th></tr>";
+            movString = localStorage.getItem("movies");
+            if (movString) {
+              MovieList = JSON.parse(movString);
+              } else {
+                MovieList = {};
+            }
+            rowString = "<tr><th>Title</th><th>Year</th><th>Genre</th><th>Rating</th><th>Delete?</th></tr>";
             // results.innerHTML = ""  // resets the table
             console.log(MovieList)
             for (let key in MovieList) {
@@ -62,7 +88,9 @@ function addMovie(){
                 rowString += "<td>" + key + "</td>";
                 rowString += "<td>" + MovieList[key]["Year"] + "</td>";
                 rowString += "<td>" + MovieList[key]["Genre"] + "</td>";
-                rowString += "<td class='yellow'>" + MovieList[key]["Rating"] + "</td></tr>";
+                rowString += "<td class='yellow'>" + MovieList[key]["Rating"] + "</td>";
+                rowString += "<td><button onclick='deleteMovie(\"" + key + "\")'>Delete</button></td></tr>";
+
             }
         movieList.innerHTML = rowString; 
           }
