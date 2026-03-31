@@ -98,19 +98,35 @@
 
 - Challenge: 
     * What changes that you have to do on the code that will position .notice box on the top right corner of the .content box? Please write the code on paper as well (both html and css on the part of .notice and .content).
+    - **Answer: Make the .content box be the parent of .notice, then change .notice's top value to be 0, and change its left property to become right and change its value to 0 as well.**
+    ```   <div class="content">Main content
+          <div class="notice">Notice!</div></div> 
+    ```
+    ```
+        .notice {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: orange;
+        padding: 10px;
+        z-index: 2;
+    }
+    ```
     * Try to change the position of .content to relative then to fixed. What do you observed each time?
+    - **Answer: .content moves to around the middle when its position is relative, then it goes back to its original position (similar to when its position was absolute) when its position is fixed.**
     * What do you observe on about the effect of z-index on .notice and .content boxes?
+    - **Answer: Z-index changes the order of the .notice and .content boxes. When .content has a higher z-index, .notice is hidden. When .notice has a higher z-index, .notice is visible, layered on top of .content.**
 
 3. Please answer the following reflection questions (15 minutes)
 
     a. Could you summarize the differences between the CSS position values (static, relative, absolute, fixed)? 
-    - **Answer: Static is the default position value (nothing changes), relative makes the element positioned to its normal position based on set numerical values (top, bottom, left, right), absolute positions the element relative to its nearest ancestor, fixed makes the element stay on a fixed part of the viewport no matter where the user scrolls.
+    - **Answer: Static is the default position value (nothing changes), relative makes the element positioned to its normal position based on set numerical values (top, bottom, left, right), absolute positions the element relative to its nearest ancestor, fixed makes the element stay on a fixed part of the viewport no matter where the user scrolls.**
 
     b. How does absolute positioning depend on its parent element?
-    - Absolute positioning depends on the parent element's position values. An absolute positioned element is basically sort of magnetically attached to its parent element, to use an analogy.
+    - **Answer: Absolute positioning depends on the parent element's position values. An absolute positioned element is basically sort of magnetically attached to its parent element, to use an analogy.**
 
     c. How do you differentiate sticky from fixed (you can research on sticky)?
-    - Sticky acts like a relative positioned element until it reaches a scroll threshhold, then it becomes fixed. Fixed is already fixed from the start, and there's no conditions for it.
+    - **Answer: Sticky acts like a relative positioned element until it reaches a scroll threshhold, then it becomes fixed. Fixed is already fixed from the start, and there's no conditions for it.**
 
     d. If you were designing a webpage for a school event, how might you use positioning to highlight important information? Please give concrete examples.
-    - 
+    - **Answer: If I was designing a webpage for a school event, one of the ways I could use positioning to highlight important information would be through position: fixed. I could make important information stay on the user's screen no matter where they scroll with the fixed position value, ensuring that the user is constantly reminded of the important information.**
