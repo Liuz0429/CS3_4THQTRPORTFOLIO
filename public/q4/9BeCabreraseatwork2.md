@@ -99,8 +99,9 @@
 - Challenge: 
     * What changes that you have to do on the code that will position .notice box on the top right corner of the .content box? Please write the code on paper as well (both html and css on the part of .notice and .content).
     - **Answer: Make the .content box be the parent of .notice, then change .notice's top value to be 0, and change its left property to become right and change its value to 0 as well.**
-    ```   <div class="content">Main content
-          <div class="notice">Notice!</div></div> 
+    ```   
+    <div class="content">Main content
+    <div class="notice">Notice!</div></div> 
     ```
     ```
         .notice {
